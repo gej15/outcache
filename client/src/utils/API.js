@@ -49,7 +49,8 @@ export default {
     removeHeart: function (removeInfo) {
         console.log(removeInfo)
         return axios.post("/removeHeart", removeInfo)
-    }
+    },
+    // findByHearts: function (item)
     // findRentalIdInUser: function (userId) {
     //     console.log(userId)
     //     return axios.get("/rentalId/" + userId)

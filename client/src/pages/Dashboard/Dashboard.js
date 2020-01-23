@@ -34,6 +34,7 @@ class Dashboard extends Component {
     items: [],
     rentedItems: [],
     rentalItemsArray: [],
+    heartedItemsArray: [],
     display: 0,
     rentalIds: [],
     startDate: "",
@@ -52,7 +53,7 @@ class Dashboard extends Component {
     description: "",
     rented: "",
     index: "",
-    hearted: {}
+    hearted: []
   }
 
   openModal = (modalInfo, index) => {
@@ -119,17 +120,7 @@ class Dashboard extends Component {
       rentedIndex: subIndex,
       rentalId: rentedItems[index].rented[subIndex]._id
     }
-    // API.getUser(rentalInfo.renterId)
-    //   .then(res => {
-    //     console.log(res.data[0].name);
-    //     console.log(res.data[0].email);
-    //     // console.log(email.sendEmail);
-    //     // email.sendEmail({
-    //     //   firstName: `${res.data[0].name}`,
-    //     //   emailAddress: `${res.data[0].email}`
-    //     // })
-    //   })
-    //   .catch(err => console.log(err));
+   
     API.approveRental(rentalInfo)
       .then(res => {
       })
@@ -155,6 +146,7 @@ class Dashboard extends Component {
           console.log(this.state.rentalIds)
           // console.log(this.state.rentals)
           this.findByRentals(this.state.rentals)
+          this.findByHearts(this.state.hearted)
         }
       })
   }
@@ -189,7 +181,7 @@ class Dashboard extends Component {
     // console.log('rentals call function')
     const rentalItemsArray = []
     // console.log(rentals) 
-    const something = async _ => {
+    const findRentalsLoop = async _ => {
       // console.log('start')
       const promises = await rentals.map(async item => {
         const getItem = await API.findByRentals(item)
@@ -208,11 +200,37 @@ class Dashboard extends Component {
       })
       // console.log(this.state.rentalItemsArray)
     }
-    something()
+    findRentalsLoop()
   }
 
   clickRouter = id => {
     console.log("this")
+  }
+
+  findByHearts = hearts => {
+    // console.log('rentals call function')
+    const heartedItemArray = []
+    // console.log(rentals) 
+    const findRentalsLoop = async _ => {
+      // console.log('start')
+      const promises = await hearts.map(async item => {
+        const getItem = await API.findByRentals(item)
+          .then(res => {
+            console.log(res.data[0])
+            // console.log(res.data)
+            // console.log(res.data[0].rented)
+            heartedItemArray.push(res.data[0])
+            // console.log(rentalItemsArray)
+          })
+      })
+      const returnhearts = await Promise.all(promises)
+      // console.log("end")
+      this.setState({
+        heartedItemsArray: heartedItemArray
+      })
+      // console.log(this.state.rentalItemsArray)
+    }
+    findRentalsLoop()
   }
 
   render() {
@@ -235,14 +253,17 @@ class Dashboard extends Component {
 
             <div className="col s12">
               <div classname="row">
-                <div className="col offset-s2 s2">
+                <div className="col offset-s2 s1">
                   <a onClick={() => this.display(0)} className="btn btn-primary dashboardButton">All Items</a>
                 </div>
-                <div className="col offset-s1 s2">
-                  <a onClick={() => this.display(1)} className="btn btn-primary dashboardButton">Requested Items</a>
+                <div className="col offset-s1 s1">
+                  <a onClick={() => this.display(1)} className="btn btn-primary dashboardButton">Requested</a>
                 </div>
-                <div className="col offset-s1 s2">
-                  <a onClick={() => this.display(2)} className="btn btn-primary dashboardButton">Your Rentals</a>
+                <div className="col offset-s1 s1">
+                  <a onClick={() => this.display(2)} className="btn btn-primary dashboardButton">Rentals</a>
+                </div>
+                <div className="col offset-s1 s1">
+                  <a onClick={() => this.display(3)} className="btn btn-primary dashboardButton">Hearts</a>
                 </div>
               </div>
               {/* <!-- Grey navigation panel --> */}
@@ -316,6 +337,22 @@ class Dashboard extends Component {
                       rentalId={this.state.rentalIds[index]}
                       rentals={result.rented}
                       onClick={() => this.openModal(result, index)}
+                    />
+                  </div>
+                ))
+              }
+              {display === 3 &&
+                // console.log(this.state.rentedItems),
+                this.state.heartedItemsArray.map((result, index) => (
+                  <div>
+                    <ResultCard
+                      key={result._id + index}
+                      id={result._id}
+                      name={result.itemName}
+                      category={result.category}
+                      price={result.price}
+                      img={result.img}
+                      clickRouter={() => this.openModal(result, index)}
                     />
                   </div>
                 ))
