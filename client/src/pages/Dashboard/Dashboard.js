@@ -252,6 +252,9 @@ class Dashboard extends Component {
             </div> */}
 
             <div className="col s12">
+              <div className="row">
+                <h4 className="center">{`Welcome, ${user.name}`}</h4>
+              </div>
               <div classname="row">
                 <div className="col offset-s2 s1">
                   <a onClick={() => this.display(0)} className="btn btn-primary dashboardButton">All Items</a>

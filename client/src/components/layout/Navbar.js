@@ -49,7 +49,13 @@ const Navbar = (logoutUser) => {
 
   const location = useLocation();
   const auth = useSelector(state => state.auth);
-  const { pathname } = location;
+  let { pathname } = location;
+  let substringSearch = pathname.substr(0,7);
+  console.log(substringSearch)
+
+  if (substringSearch === '/search') {
+    pathname = '/search';
+  }
 
   const [slider, setSlider] = useState(false);
   const size = useWindowSize();
@@ -77,7 +83,7 @@ const Navbar = (logoutUser) => {
                   }}
                   className={`btn btn-large btn-flat ${logoMap[pathname]}-text ${buttonMap[pathname]} navButton text-darken-3`}
                 >
-                  {`${auth.user.name}'s Dashboard`}
+                  Dashboard
                 </Link>
               </li>
               <li>
@@ -140,7 +146,7 @@ const Navbar = (logoutUser) => {
               className={`btn btn-large btn-flat ${logoMap[pathname]}-text ${buttonMap[pathname]} navButton`}
               onClick={() => setSlider(s => !s)}
             >
-              {`${auth.user.name}'s Dashboard`}
+              Dashboard
             </Link>
           </li>
           <li>
