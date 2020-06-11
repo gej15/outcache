@@ -7,10 +7,9 @@ function ResultCard(props) {
 
     console.log(hearted)
 
-    let isHearted
 
     function heart() {
-        isHearted = false
+        let isHearted = false
         if(hearted) {
             for (let item of hearted) {
                 if(item === id) {

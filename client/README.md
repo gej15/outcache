@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![demoGif](https://github.com/timstarkk/outcache/blob/master/gifs/outcacheDemo.gif)
 
-In the project directory, you can run:
+# OutCache
 
-### `npm start`
+A peer-to-peer online rental website for outdoor/camping equipment.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [View Project](https://www.outcache.com)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+run the following to start the application:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. 'npm install'
+2. 'cd client'
+3. 'npm install'
+4. from dedicated CLI window/tab: 'mongod'
+5. run 'npm start' from both the root directory and '/client'
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Node.js (required)
+2. MongoDB (required for database functionality)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### How to install prerequisites from CLI using Homebrew:
+1. Update Homebrew
+2. Node.js: 'brew install node'
+3. MongoDB: 'brew instal mongodb'
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Built With
 
-### `npm run eject`
+* [React.js](https://reactjs.org/) - The web framework used
+* [MaterializeCSS](https://materializecss.com/) - CSS framework
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Authors
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **Thomas Vinyard** - *Initial Concept/Creator* - [tpvinyard](https://github.com/TPVinyard)
+* **Grant Jackson** - *Initial Creator* - [gej15](https://github.com/gej15)
+* **Tim Stark** - *Initial Creator* - [timstarkk](https://github.com/timstarkk)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+See also the complete list of [contributors](https://github.com/timstarkk/contributors) who participated in this project.

@@ -31,9 +31,9 @@ function RentalCard(props) {
         }}>
             < div className="resultCard z-depth-2">
                 <div className="cardImageContainer" >
-                    <img className="cardImage" onClick={() => heartClick(id, name, price)} src={img} alt={name} />
+                    <img className="cardImage" src={img} alt={name} />
 
-                    <div className="littleSquare"  style={{ "paddingTop": "6px", "padding-bottom": "5px" }}></div>
+                    {/* <div className="littleSquare"  style={{ "paddingTop": "6px", "padding-bottom": "5px" }}></div> */}
                 </div>
                 <div className="cardInfoContainer">
                     <h6 className="cardName">{name}</h6>
